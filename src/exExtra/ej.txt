@@ -1,0 +1,48 @@
+Un ejercicio de cada tema (nivel examen)
+Ejercicio A: Router con subruta, props y useRoute + computed (ejercicio 1)
+
+Enunciado:
+
+Ruta /exercici1 con un array pelicules en el pare (id, titol, director).
+Lista de RouterLink que llevan a /exercici1/:peliculaId.
+Subruta con un fill PeliculaDetall.vue que reciba el array por prop y lea el peliculaId con useRoute.
+Un computed busca la película y muestra título y director.
+Si no existe, Pel·lícula no trobada.
+
+Piezas: children (array), RouterView :pelicules, defineProps, useRoute, computed con find.
+
+Pista del computed:
+
+js
+pelicules.find(p => p.id === Number(route.params.peliculaId))
+Ejercicio B: provide / inject (ejercicio 2)
+
+Enunciado:
+
+Ruta /exercici2.
+El pare tiene un ref vots (empieza en 0) y provee tres funciones: votarSi, votarNo y reiniciar.
+Tres componentes fills (BtnSi, BtnNo, BtnReiniciar), cada uno con su botón, que inyectan su función.
+votarSi suma 1, votarNo resta 1, reiniciar pone 0.
+El número se muestra en el pare: Vots: 3.
+
+Piezas: provide, inject, funciones flecha (no reactive), importar los hijos.
+
+Cuidado con: que la clave de provide e inject sea idéntica.
+
+Ejercicio C: computed + v-model + watch (ejercicio 3)
+
+Enunciado:
+
+Ruta /exercici3.
+Array de 5 animals (id, nom).
+Input con v-model que filtra por nombre, sin distinguir mayúsculas.
+Lista con v-for y :key por id.
+Debajo, X resultats (con .length del computed).
+watch que escribe en consola el texto cada vez que cambia.
+
+Piezas: ref, reactive, computed con filter + includes, watch.
+
+Pista del computed:
+
+js
+animals.filter(a => a.nom.toLowerCase().includes(text.value.toLowerCase()))
